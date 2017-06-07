@@ -12,6 +12,7 @@ public class URI1002 {
 		double area = 3.14159 * (raio * raio);
 		DecimalFormat df = new DecimalFormat("####.0000");
 		System.out.println("A=" + df.format(area));
+		input.close();
 	}
 
 }
