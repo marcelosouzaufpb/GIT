@@ -1,16 +1,18 @@
 import java.util.Locale;
 import java.util.Scanner;
 
-public class URI1006 {
+public class URI1008 {
+
 	public static void main(String[] args) {
-		double A, B, C, MEDIA;
+		int A, B;
+		double C;
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
-		A = scan.nextDouble();
-		B = scan.nextDouble();
+		A = scan.nextInt();
+		B = scan.nextInt();
 		C = scan.nextDouble();
-		MEDIA = ((A * 2) + (B * 3) + (C * 5)) / (2 + 3 + 5);
-		System.out.printf("MEDIA = %.1f\n", MEDIA);
+		System.out.println("NUMBER = " + A);
+		System.out.printf("SALARY = U$ %.2f\n", B * C);
 		scan.close();
 
 	}
