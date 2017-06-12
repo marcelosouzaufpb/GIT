@@ -1,39 +1,41 @@
-import java.util.Locale;
 import java.util.Scanner;
 
 public class URI1049 {
 
 	public static void main(String[] args) {
-		int dd;
-		Locale.setDefault(Locale.US);
+		String a, b, c;
 		Scanner scan = new Scanner(System.in);
-		dd = scan.nextInt();
-		if (dd == 61) {
-			System.out.printf("Brasilia\n");
-		} else if (dd == 71) {
-			System.out.printf("Salvador\n");
+		a = scan.next();
+		b = scan.next();
+		c = scan.next();
 
-		} else if (dd == 11) {
-			System.out.printf("Sao Paulo\n");
+		if (a.equals("vertebrado") && b.equals("ave") && c.equals("carnivoro")) {
+			System.out.print("aguia\n");
+		}
+		if (a.equals("vertebrado") && b.equals("ave") && c.equals("onivoro")) {
+			System.out.print("pomba\n");
+		}
+		if (a.equals("vertebrado") && b.equals("mamifero") && c.equals("onivoro")) {
+			System.out.print("homem\n");
+		}
+		if (a.equals("vertebrado") && b.equals("mamifero") && c.equals("herbivoro")) {
+			System.out.print("vaca\n");
+		}
 
-		} else if (dd == 21) {
-			System.out.printf("Rio de Janeiro\n");
-
-		} else if (dd == 32) {
-			System.out.printf("Juiz de Fora\n");
-
-		} else if (dd == 19) {
-			System.out.printf("Campinas\n");
-
-		} else if (dd == 27) {
-			System.out.printf("Vitoria\n");
-
-		} else if (dd == 31) {
-			System.out.printf("Belo Horizonte\n");
-
-		} else {
-			System.out.printf("DDD nao cadastrado\n");
+		if (a.equals("invertebrado") && b.equals("inseto") && c.equals("hematofago")) {
+			System.out.print("pulga\n");
+		}
+		if (a.equals("invertebrado") && b.equals("inseto") && c.equals("herbivoro")) {
+			System.out.print("lagarta\n");
+		}
+		if (a.equals("invertebrado") && b.equals("anelideo") && c.equals("hematofago")) {
+			System.out.print("sanguessuga\n");
+		}
+		if (a.equals("invertebrado") && b.equals("anelideo") && c.equals("onivoro")) {
+			System.out.print("minhoca\n");
 		}
 		scan.close();
+
 	}
+
 }
