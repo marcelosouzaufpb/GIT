@@ -4,40 +4,49 @@ import java.util.Scanner;
 public class URI1045 {
 
 	public static void main(String[] args) {
-		double aa, aux, bc;
+		double a, b, c;
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
-		double a = scan.nextDouble();
-		double b = scan.nextDouble();
-		double c = scan.nextDouble();
-		aux = a;
-		if (b > a) {
-			a = b;
-			b = aux;
-		}
-		if (c > a) {
-			a = c;
-			c = aux;
-		}
-		aa = Math.pow(a, 2);
-		bc = Math.pow(b, 2) + Math.pow(c, 2);
+		a = scan.nextDouble();
+		b = scan.nextDouble();
+		c = scan.nextDouble();
+		double tempA = Math.max(a, Math.max(b, c));
+		double tempB = 0;
+		double tempC = 0;
 
-		if (a >= b + c) {
-			System.out.println(" NAO FORMA TRIANGULO");
-		} else {
-			if (aa > bc) {
-				System.out.println("TRIANGULO OBTUSANGULO");
-			} else if (aa < bc) {
-				System.out.println("TRIANGULO ACUTANGULO");
-			} else if (aa == (bc)) {
-				System.out.println("TRIANGULO RETANGULO");
-			}
-			if (a == b && b == c) {
-				System.out.println("TRIANGULO EQUILATERO");
-			} else if (a == b || a == c || b == c) {
-				System.out.println("TRIANGULO ISOSCELES");
-			}
+		if (tempA == a) {
+			tempB = Math.max(b, c);
+			tempC = Math.min(b, c);
+		}
+		if (tempA == b) {
+			tempB = Math.max(a, c);
+			tempC = Math.min(a, c);
+		}
+		if (tempA == c) {
+			tempB = Math.max(b, a);
+			tempC = Math.min(b, a);
+		}
+		if (tempA >= (tempB + tempC)) {
+			System.out.print("NAO FORMA TRIANGULO\n");
+
+		} else if (tempA * tempA > ((tempB * tempB) + (tempC * tempC))) {
+			System.out.print("TRIANGULO OBTUSANGULO\n");
+		}
+		if (tempA * tempA == ((tempB * tempB) + (tempC * tempC))) {
+			System.out.print("TRIANGULO RETANGULO\n");
+		}
+
+		if (tempA * tempA < ((tempB * tempB) + (tempC * tempC))) {
+			System.out.print("TRIANGULO ACUTANGULO\n");
+		}
+		if ((tempA == tempB) && (tempA == tempC)) {
+			System.out.print("TRIANGULO EQUILATERO\n");
+		}
+		if (((tempA == tempB) && (tempA != tempC)) || ((tempA == tempC) && (tempA != tempB))
+				|| ((tempB == tempC) && (tempB != tempA))) {
+			System.out.print("TRIANGULO ISOSCELES\n");
 		}
 		scan.close();
 	}
+
 }
