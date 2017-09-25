@@ -4,46 +4,56 @@ import java.util.Scanner;
 public class URI1557 {
 
 	public static void main(String[] args) {
-		int n;
-		int m[][];
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
+		int n, i, j;
+		int[][] matriz = new int[15][15];
 
 		while (true) {
 			n = scan.nextInt();
-			int cont1 = 0, cont2 = n - 1, cont3 = 1;
-			m = new int[n][n];
-
 			if (n == 0) {
 				break;
-
-			} else if (n == 1) {
-				System.out.printf(" %2d\n\n", 1);
-			} else {
-				for (int i = 0; i < n - 1; i++) {
-					for (int j = cont1; j <= cont2; j++) {
-						m[cont1][j] = cont3;
-						m[cont2][j] = cont3;
-						m[j][cont1] = cont3;
-						m[j][cont2] = cont3;
-					}
-					cont3++;
-					cont1++;
-					cont2--;
+			}
+			for (i = 0; i < 15; i++) {
+				for (j = 0; j < 15; j++) {
+					matriz[i][j] = 0;
 				}
-
-				for (int g = 0; g < n; g++) {
-					for (int h = 0; h < n; h++) {
-						if (h == 0) {
-							System.out.printf("%3d", m[g][h]);
-						} else {
-							System.out.printf(" %3d", m[g][h]);
+			}
+			int linha = 1, coluna = 1;
+			for (i = 0; i < n; i++) {
+				coluna = 1;
+				for (j = 0; j < n; j++) {
+					matriz[i][j] = linha * coluna;
+					coluna *= 2;
+				}
+				linha *= 2;
+			}
+			int numeroMaior = matriz[n - 1][n - 1], contagem = 0;
+			while (numeroMaior > 0) {
+				numeroMaior /= 10;
+				contagem++;
+			}
+			for (i = 0; i < n; i++) {
+				for (j = 0; j < n; j++) {
+					int atual = matriz[i][j], cont = 0, k;
+					while (atual > 0) {
+						atual /= 10;
+						cont++;
+					}
+					if (j > 0) {
+						for (k = 0; k < contagem + 1 - cont; k++) {
+							System.out.printf(" ");
+						}
+					} else {
+						for (k = 0; k < contagem - cont; k++) {
+							System.out.printf(" ");
 						}
 					}
-					System.out.printf("\n");
+					System.out.printf("%d", matriz[i][j]);
 				}
 				System.out.printf("\n");
 			}
+			System.out.printf("\n");
 		}
 		scan.close();
 	}
