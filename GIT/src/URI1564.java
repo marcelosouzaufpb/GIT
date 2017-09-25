@@ -7,17 +7,14 @@ public class URI1564 {
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
 		String n;
-		while (true) {
+		while (scan.hasNext()) {
 			n = scan.nextLine();
-			if (n != "EOF") {
-				if (n.equals("0")) {
-					System.out.printf("vai ter copa!\n");
-				} else {
-					System.out.printf("vai ter duas!\n");
-				}
+			if (n.equals("0")) {
+				System.out.printf("vai ter copa!\n");
 			} else {
-				break;
+				System.out.printf("vai ter duas!\n");
 			}
 		}
+		scan.close();
 	}
 }
