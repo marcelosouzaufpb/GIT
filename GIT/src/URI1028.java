@@ -1,8 +1,11 @@
+import java.util.Locale;
+import java.util.Scanner;
 
 public class URI1028 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Locale.setDefault(Locale.US);
+		Scanner scan = new Scanner(System.in);
 
 	}
 
