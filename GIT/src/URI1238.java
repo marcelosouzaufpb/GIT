@@ -7,8 +7,8 @@ public class URI1238 {
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
 		int n;
-		char palavra1[] = new char[55];
-		char palavra2[] = new char[55];
+		char palavra1[] = new char[51];
+		char palavra2[] = new char[51];
 		String palavraF;
 		n = scan.nextInt();
 		for (int i = 0; i < n; i++) {
