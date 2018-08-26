@@ -14,7 +14,7 @@ public class URI2126 {
 			str = scan.nextLine();
 			int qs = 0, lst_pos = 0;
 
-			for (int i = 0; i <= str.length() - sub.length(); i++) {
+			for (int i = 0; i <= (str.length() - sub.length()); i++) {
 				boolean is_sub = true;
 				for (int j = 0; j < sub.length() && is_sub; j++)
 					is_sub = (sub.charAt(j) == str.charAt(i + j));
@@ -24,7 +24,6 @@ public class URI2126 {
 						lst_pos = i + 1;
 				}
 			}
-
 			System.out.println("Caso #" + cs++ + ":" );
 			if (qs != 0) {
 				System.out.println("Qtd.Subsequencias: " + qs + "\nPos: " + lst_pos + "\n\n");
